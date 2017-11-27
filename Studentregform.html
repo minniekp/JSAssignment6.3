@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Results Sheet</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function calc() {
+			var marks1, marks2, marks3, avg = 0, total = 0, grade = "";
+			marks1 = parseInt(document.form1.wp.value);
+			marks2 = parseInt(document.form1.sp.value);
+			marks3 = parseInt(document.form1.cg.value);
+			total = marks1+marks2+marks3;
+			avg = total/3;
+
+			if(marks1 < 35 || marks2 < 35 || marks3 < 35) {
+				grade = "fail";
+            } else if (avg >= 75)
+            {
+            	grade = "Distinction";
+            } else if ( avg >= 60 && avg < 75)
+            {
+            	grade = "First class";
+            } else if ( avg >= 50 && avg < 60)
+            {
+            	grade = "Second Class";
+            } else if ( avg >= 35 && avg < 50)
+            {
+                grade = "Pass Class";
+            } else if ( avg < 35)
+            {
+            	grade = "Fail";
+            }
+
+            document.form1.grade.value = result;
+            document.form1.total = total;
+            document.form1.average.value = avg;
+		}
+	</script>
+
+        <form name = "form1">
+        	<table>
+         <tr>
+           <td>Student Name</td>
+           <td><input type = "text" /></td>
+        </tr>
+        <tr>
+        	<td colspan="2" align="center">Subject Marks</td>
+        </tr>
+        <tr>
+        	<td>Web Programming</td>
+        	<td><input type = "text" name = "wp" /></td>
+        </tr>
+        <tr>
+        	<td>Computer Graphics</td>
+        	<td><input type="text" name="cg" /></td>
+        </tr>
+        <tr>
+        	<td>System Programming</td>
+        	<td><input type="text" name="sp"></td>
+        </tr>
+        <tr>
+        	<td colspan="2" align="center"><input type="button" onclick="calc()" value="calculate"></td>
+        </tr>
+        <tr>
+        	<td>Total</td>
+        	<td><input type="text" name="total"></td>
+        </tr>
+        <tr>
+        	<td>Average</td>
+        	<td><input type="text" name="average"></td>
+        </tr>
+        <tr>
+        	<td>Grade</td>
+        	<td><input type="text" name="grade"></td>
+        </tr>
+        </table>
+    </form>
+</body>
+</html>
